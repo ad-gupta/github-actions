@@ -12,4 +12,8 @@ if (require.main === module) {
     });
 }
 
+app.get('/view', (req, res)=> {
+    res.send('view');
+}
+
 module.exports = app;  // Export app for testing
