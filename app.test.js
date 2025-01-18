@@ -30,3 +30,15 @@ test('POST /subtract - invalid input', async () => {
     expect(res.status).toBe(400);
     expect(res.body.error).toBe("Invalid input, numbers required");
 });
+
+test('POST /multiply - valid numbers', async () => {
+    const res = await request(app).post('/multiply').send({ num1: 10, num2: 4 });
+    expect(res.status).toBe(200);
+    expect(res.body.result).toBe(40);
+});
+
+test('POST /multiply - invalid input', async () => {
+    const res = await request(app).post('/multiply').send({ num1: "x", num2: 4 });
+    expect(res.status).toBe(400);
+    expect(res.body.error).toBe("Invalid input, numbers required");
+});
